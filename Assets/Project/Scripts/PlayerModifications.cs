@@ -3,8 +3,11 @@ using System.Collections;
 
 public class PlayerModifications : MonoBehaviour
 {
+    //Tag
     public string GoodTag;
     public string BadTag;
+
+    //Modificazioni
     public float ContinueDecrease;
     public float GoodIncrease;
     public float BadIncrease;
@@ -31,11 +34,10 @@ public class PlayerModifications : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        if ((transform.localScale.x) > 0.5)
+        if ((transform.localScale.x) >= 0.4)
         {
             //Dimagrimento continuo
             transform.localScale -= new Vector3(ContinueDecrease, ContinueDecrease, 0);
         }
-
     }
 }
