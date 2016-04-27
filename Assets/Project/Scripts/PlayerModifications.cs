@@ -12,6 +12,9 @@ public class PlayerModifications : MonoBehaviour
     public float GoodIncrease;
     public float BadIncrease;
 
+    //legate al pause menu
+    public PausedMenuBehavior pauseMenu;
+
     //GoodIncrease
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -34,7 +37,8 @@ public class PlayerModifications : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        if ((transform.localScale.x) >= 0.4)
+        //controllo della dimensione minima e se non nel pause menu
+        if ((transform.localScale.x >= 0.4) && !pauseMenu.isPaused)
         {
             //Dimagrimento continuo
             transform.localScale -= new Vector3(ContinueDecrease, ContinueDecrease, 0);
