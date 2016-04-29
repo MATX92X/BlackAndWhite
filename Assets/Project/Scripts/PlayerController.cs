@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     //Variabili
     public float speed;
     public float jump;
+	public static float distTraveled;
     float moveVelocity;
 
     bool grounded = true;
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
                 GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jump);
             }
         }
+		distTraveled = transform.localPosition.x;
     }
 
     //check if grounded
