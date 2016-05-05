@@ -8,9 +8,11 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float jump;
 	public static float distTraveled;
-    float moveVelocity;
+	public float width;
+	public Transform groundCheck, groundCheck2;
 
-    bool grounded = true;
+	private float moveVelocity;
+    private bool grounded = true;
      
     // Update is called once per frame
     void Update()
@@ -26,6 +28,8 @@ public class PlayerController : MonoBehaviour
             moveVelocity = -speed;
 
         GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
+		width = transform.localScale.x;
+		grounded = Physics2D.OverlapArea (groundCheck.position, groundCheck2.position);
 
         //jump
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))

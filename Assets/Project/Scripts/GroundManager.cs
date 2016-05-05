@@ -33,13 +33,14 @@ public class GroundManager : MonoBehaviour {
 
 	private void Recycle() {
 		Vector3 scale = new Vector3 (
-			Random.Range(minSize.x, maxSize.x),
-			Random.Range(minSize.y, maxSize.y),
+			Mathf.Floor(Random.Range(minSize.x, maxSize.x)),
+			Mathf.Floor(Random.Range(minSize.y, maxSize.y)),
 			Random.Range(minSize.z, maxSize.z)
 		);
 
 		Vector3 pos = nextPos;
 		pos.x += scale.x * 0.5f;
+
 		pos.y += scale.y * 0.5f;
 
 

@@ -97,7 +97,6 @@ GameObject:
   - 92: {fileID: 229333146}
   - 124: {fileID: 229333145}
   - 81: {fileID: 229333144}
-  - 114: {fileID: 229333143}
   - 50: {fileID: 229333142}
   - 114: {fileID: 229333149}
   m_Layer: 0
@@ -124,17 +123,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &229333143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 229333141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df0726fd5ea3291478dd896d71cbceae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!81 &229333144
 AudioListener:
   m_ObjectHideFlags: 0
@@ -617,6 +605,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

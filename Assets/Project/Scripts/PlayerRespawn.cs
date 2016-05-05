@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerRespawn : MonoBehaviour {
 
@@ -24,9 +25,10 @@ public class PlayerRespawn : MonoBehaviour {
         //Se raggiungo il limite riporto il Player al punto di partenza con le dimensioni di partenza
         if (respawn)
         {
-            transform.localPosition = spawnObject.transform.localPosition;
+            /*transform.localPosition = spawnObject.transform.localPosition;
             transform.localScale = spawnObject.transform.localScale;
-            mainCamera.transform.localPosition = cameraSpawn.transform.localPosition;
+            mainCamera.transform.localPosition = cameraSpawn.transform.localPosition;*/
+			SceneManager.LoadScene("MainMenu");
         }
     }
 }

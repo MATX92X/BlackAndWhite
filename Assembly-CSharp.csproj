@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Project\Scripts\CameraMoves.cs" />
+     <Compile Include="Assets\Project\Scripts\FoodManager.cs" />
      <Compile Include="Assets\Project\Scripts\GroundManager.cs" />
      <Compile Include="Assets\Project\Scripts\MainMenuScript\CameraMovementMainMenu.cs" />
      <Compile Include="Assets\Project\Scripts\MainMenuScript\MainMenuManager.cs" />
