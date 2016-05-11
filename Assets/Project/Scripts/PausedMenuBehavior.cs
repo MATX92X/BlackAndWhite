@@ -6,6 +6,14 @@ public class PausedMenuBehavior : MonoBehaviour {
 
     public bool isPaused;
     public GameObject menuCanvas;
+    public string menuName;
+
+    private bool isQuitting;
+
+    void Awake()
+    {
+        isQuitting = false;
+    }
 
     void Update()
     {
@@ -19,7 +27,14 @@ public class PausedMenuBehavior : MonoBehaviour {
             Time.timeScale = 1f;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))   isPaused = !isPaused;
+        //se il pulsante quit è premuto setta la timeScale a 1f e carica la schermata iniziale
+        if (isQuitting)
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(menuName);
+        }
+
+        if ( Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P) )   isPaused = !isPaused;
 
     }
 
@@ -30,7 +45,7 @@ public class PausedMenuBehavior : MonoBehaviour {
 
     public void QuitToMainMenu ()
     {
-        SceneManager.LoadScene("MainMenu");
+        isQuitting = true;
     }
 
 }

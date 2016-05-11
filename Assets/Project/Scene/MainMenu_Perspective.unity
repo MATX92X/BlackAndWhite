@@ -292,7 +292,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 400544, guid: bc0b87e88a7eae149af20aaed690654f, type: 2}
   numOfObjs: 80
-  recycleOffset: 30
+  target: {fileID: 1374899222}
+  recycleOffset: 40
   startPos: {x: -55, y: -2.662736, z: 1.465808}
   minSize: {x: 1, y: 1, z: 1}
   maxSize: {x: 7, y: 6, z: 1}
@@ -678,6 +679,33 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 685142089}
+--- !u!1 &747922111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 747922112}
+  m_Layer: 0
+  m_Name: WallChecker2
+  m_TagString: Untagged
+  m_Icon: {fileID: -4453645107408684167, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &747922112
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 747922111}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.1, y: -0.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1374899231}
+  m_RootOrder: 3
 --- !u!1 &858432454
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,7 +801,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 903173456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -0.8, z: 0}
+  m_LocalPosition: {x: 0.3, y: -0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1374899231}
@@ -787,7 +815,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 905936744}
   m_Layer: 0
-  m_Name: WallChecker
+  m_Name: WallChecker1
   m_TagString: Untagged
   m_Icon: {fileID: 864586104465068316, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -800,7 +828,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 905936743}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.09, y: -0.18, z: 0}
+  m_LocalPosition: {x: 1, y: 0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1374899231}
@@ -1184,9 +1212,7 @@ GameObject:
   - 23: {fileID: 1374899229}
   - 61: {fileID: 1374899228}
   - 50: {fileID: 1374899227}
-  - 114: {fileID: 1374899226}
   - 114: {fileID: 1374899225}
-  - 114: {fileID: 1374899224}
   - 114: {fileID: 1374899223}
   m_Layer: 0
   m_Name: AIPlayer
@@ -1208,60 +1234,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   jump: 30
-  stopCameraDistance: 30
-  groundChecker: {fileID: 2114796545}
+  stopCameraDistance: 15
+  groundChecker1: {fileID: 2114796545}
   groundChecker2: {fileID: 903173457}
   edgeChecker: {fileID: 2021796535}
   edgeCheckRadius: 0.01
-  wallChecker: {fileID: 905936744}
-  wallCheckRadius: 0.01
---- !u!114 &1374899224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1374899222}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 497ebdde2e1c3314a89a18be6b4be694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnObject: {fileID: 0}
-  mainCamera: {fileID: 0}
-  cameraSpawn: {fileID: 0}
+  wallChecker1: {fileID: 905936744}
+  wallChecker2: {fileID: 747922112}
 --- !u!114 &1374899225
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1374899222}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c99e384f5f605a44b905f8e23b487c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GoodTag: 
-  BadTag: 
-  ContinueDecrease: 0.01
-  GoodIncrease: 0.5
+  GoodTag: GoodFood
+  BadTag: BadFood
+  ContinueDecrease: 0.001
+  GoodIncrease: 0.75
   BadIncrease: 1
+  checkPauseMenu: 0
   pauseMenu: {fileID: 0}
---- !u!114 &1374899226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1374899222}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68bb35f33b5e3604bb79a9947e6d3e10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  jump: 0
-  width: 0
-  groundCheck: {fileID: 0}
-  groundCheck2: {fileID: 0}
 --- !u!50 &1374899227
 Rigidbody2D:
   serializedVersion: 2
@@ -1333,12 +1330,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1374899222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.88, y: 5.78, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -16.88, y: 14.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0.5}
   m_Children:
   - {fileID: 2114796545}
   - {fileID: 903173457}
   - {fileID: 905936744}
+  - {fileID: 747922112}
   - {fileID: 2021796535}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1593,7 +1591,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1946921437}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -44.51279, y: 1.6627364, z: -1.4658084}
+  m_LocalPosition: {x: -44.51279, y: -4.64, z: -1.4658084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 424319501}
@@ -1672,7 +1670,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1374899231}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &2027659754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1753,7 +1751,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2114796545}
   m_Layer: 0
-  m_Name: GroundCheck
+  m_Name: GroundCheck1
   m_TagString: Untagged
   m_Icon: {fileID: 2270504221434485236, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1766,7 +1764,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2114796544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: -0.7, z: 0}
+  m_LocalPosition: {x: -0.3, y: -0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1374899231}

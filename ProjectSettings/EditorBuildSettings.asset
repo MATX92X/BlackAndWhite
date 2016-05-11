@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Project/Scene/MainMenu.unity
+    path: Assets/Project/Scene/MainMenu_Perspective.unity
   - enabled: 1
     path: Assets/Project/Scene/1-1.unity

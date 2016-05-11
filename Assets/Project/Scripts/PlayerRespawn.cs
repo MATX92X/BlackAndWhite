@@ -9,6 +9,7 @@ public class PlayerRespawn : MonoBehaviour {
     public GameObject spawnObject;
     public GameObject mainCamera;
     public GameObject cameraSpawn;
+    public string menuName;
 
     // Update is called once per frame
     void Update () {
@@ -28,7 +29,7 @@ public class PlayerRespawn : MonoBehaviour {
             /*transform.localPosition = spawnObject.transform.localPosition;
             transform.localScale = spawnObject.transform.localScale;
             mainCamera.transform.localPosition = cameraSpawn.transform.localPosition;*/
-			SceneManager.LoadScene("MainMenu");
+			SceneManager.LoadScene(menuName);
         }
     }
 }

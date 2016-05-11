@@ -11,7 +11,7 @@ public class AIController : MonoBehaviour
     private float currSpeed;
 
     //checker
-    public Transform groundChecker;
+    public Transform groundChecker1;
     public Transform groundChecker2;
     private bool grounded = true;
 
@@ -19,14 +19,14 @@ public class AIController : MonoBehaviour
     public float edgeCheckRadius;
     private bool atEdge;
 
-    public Transform wallChecker;
-    public float wallCheckRadius;
+    public Transform wallChecker1;
+    public Transform wallChecker2;
     private bool atWall;
 
     //camera
     private Transform cameraTransform;
 
-    void Start()
+    void Awake()
     {
         cameraTransform = FindObjectOfType<Camera>().transform;
     }
@@ -42,18 +42,16 @@ public class AIController : MonoBehaviour
         else if ((transform.position.x - cameraTransform.position.x) < 0)
             currSpeed = speed * 0.8f;
 
-
         //set the speed
         GetComponent<Rigidbody2D>().velocity = new Vector2(currSpeed, GetComponent<Rigidbody2D>().velocity.y);
 
         //check the checker
-        grounded = Physics2D.OverlapArea(groundChecker.position, groundChecker2.position);
+        grounded = Physics2D.OverlapArea(groundChecker1.position, groundChecker2.position);
         atEdge = !Physics2D.OverlapCircle(edgeChecker.position, edgeCheckRadius);
-        atWall = Physics2D.OverlapCircle(wallChecker.position, wallCheckRadius);
+        atWall = Physics2D.OverlapArea(wallChecker1.position, wallChecker2.position);
 
         if (grounded)
             if (atEdge || atWall) GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jump);
-
     }
 }
 

@@ -5,18 +5,24 @@ using System.Collections.Generic;
 public class GroundManager : MonoBehaviour {
 
 	public Transform prefab;
-	public int numOfObjs;
+    public int numOfObjs;
+    public GameObject target;
 	public float recycleOffset;
 	public Vector3 startPos;
 	public Vector3 minSize, maxSize;
 
 	private Vector3 nextPos;
 	private Queue<Transform> objectQueue;
+    private Vector3 initialPos;
+    private Transform clone;
+
 	// Use this for initialization
 	void Start () {
 		objectQueue = new Queue<Transform>(numOfObjs);
 		for (int i = 0; i < numOfObjs; i++) {
-			objectQueue.Enqueue ((Transform)Instantiate (prefab));
+            clone = (Transform)Instantiate(prefab);
+            clone.SetParent(this.transform);
+            objectQueue.Enqueue (clone);
 		}
 		nextPos = startPos;
 		for (int i = 0; i < numOfObjs; i++) {
@@ -26,7 +32,7 @@ public class GroundManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (objectQueue.Peek().localPosition.x + recycleOffset < PlayerController.distTraveled){
+		if (objectQueue.Peek().localPosition.x + recycleOffset < target.transform.localPosition.x ){
 			Recycle ();
 		}
 	}

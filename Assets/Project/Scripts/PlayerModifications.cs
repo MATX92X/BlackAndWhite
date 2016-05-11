@@ -13,6 +13,7 @@ public class PlayerModifications : MonoBehaviour
     public float BadIncrease;
 
     //legate al pause menu
+    public bool checkPauseMenu;
     public PausedMenuBehavior pauseMenu;
 
     //GoodIncrease
@@ -35,13 +36,15 @@ public class PlayerModifications : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
-        //controllo della dimensione minima e se non nel pause menu
-        if ((transform.localScale.x >= 0.4) && !pauseMenu.isPaused)
-        {
-            //Dimagrimento continuo
-            transform.localScale -= new Vector3(ContinueDecrease, ContinueDecrease, 0);
-        }
+        //controllo se esiste il pause menu e se bisogna controllarlo
+        if (checkPauseMenu || (pauseMenu != null && !pauseMenu.isPaused))
+            //controllo della dimensione minima
+            if (transform.localScale.x >= 0.4)
+            {
+                //Dimagrimento continuo
+                transform.localScale -= new Vector3(ContinueDecrease, ContinueDecrease, 0);
+            }
     }
 }
