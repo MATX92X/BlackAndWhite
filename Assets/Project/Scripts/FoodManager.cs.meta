@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: 045e52f9bb545af4388921093a12f828
-timeCreated: 1462477597
+timeCreated: 1463001067
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - GoodFood: {fileID: 123898, guid: 9a6cbbecabe073c4c87e02fecf3eb5f3, type: 2}
+  - MainCamera: {fileID: 2007144, guid: 86a60c0f96e19934790a2f806f14f76f, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
